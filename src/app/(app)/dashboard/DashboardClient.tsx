@@ -69,6 +69,10 @@ export default function DashboardClient({
   const [totalXp, setTotalXp] = useState(initialXp)
   const [todayXp, setTodayXp] = useState(initialTodayXp)
   const [myBadges, setMyBadges] = useState<string[]>(initialBadges)
+  // Sync missions when fresh server data arrives
+useEffect(() => {
+  setMissions(initialMissions)
+}, [initialMissions])
   const [togglingId, setTogglingId] = useState<string | null>(null)
 
   const nextBadge = getNextBadge(totalXp)

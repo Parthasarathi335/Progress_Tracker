@@ -61,6 +61,10 @@ export default function MissionsClient({
     assignment: 'both',
   })
   const [formError, setFormError] = useState('')
+  // Sync missions when fresh server data arrives
+useEffect(() => {
+  setMissions(initialMissions)
+}, [initialMissions])
 
   const partnerName = partnerProfile?.username || partnerProfile?.email?.split('@')[0] || 'Partner'
 
